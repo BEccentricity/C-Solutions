@@ -1,3 +1,4 @@
 Education
-.exe
-.vscode
+*.exe
+*.vscode
+gcm.cache
