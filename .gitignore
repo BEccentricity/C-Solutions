@@ -1,4 +1,5 @@
 Education
-*.exe
+*.o
 *.vscode
 gcm.cache
+build
