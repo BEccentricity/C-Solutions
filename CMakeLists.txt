@@ -10,7 +10,6 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 option(ENABLE_BENCHMARKS "Enable benchmarks (requires Google Benchmark)" OFF)
 option(ENABLE_TESTS "Enable tests (requires Google Test)" OFF)
 
-# Настройки для Boost как в примере
 set(Boost_USE_STATIC_LIBS    ON)
 set(Boost_USE_STATIC_RUNTIME ON)
 
@@ -19,97 +18,60 @@ find_package(Boost 1.85 REQUIRED COMPONENTS
     system        
 )
 
+add_executable(07_01 07_01.cpp)
 
-#===============================================================================
-# Задача 07.01
-#===============================================================================
-add_executable(07_01_solver 07_01.cpp)
-target_compile_options(07_01_solver PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(07_02 07_02.cpp)
 
-#===============================================================================
-# Задача 07.02 
-#===============================================================================
-add_executable(07_02_rational 07_02.cpp)
-target_compile_options(07_02_rational PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(06_05 06_05.cpp)
+target_include_directories(06_05 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(06_05 PRIVATE ${Boost_LIBRARIES})
 
-#===============================================================================
-# Задача 06.05
-#===============================================================================
-# Исполняемый файл
-add_executable(06_05_loader 06_05.cpp)
-target_compile_options(06_05_loader PRIVATE -Wall -Wextra -Wpedantic)
-target_include_directories(06_05_loader PRIVATE ${Boost_INCLUDE_DIRS})
-target_link_libraries(06_05_loader PRIVATE ${Boost_LIBRARIES})
-
-# Первая библиотека
 add_library(first SHARED first.cpp)
-target_compile_options(first PRIVATE -Wall -Wextra -Wpedantic)
 target_include_directories(first PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(first PRIVATE ${Boost_LIBRARIES})
 
-# Вторая библиотека
 add_library(second SHARED second.cpp)
-target_compile_options(second PRIVATE -Wall -Wextra -Wpedantic)
 target_include_directories(second PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(second PRIVATE ${Boost_LIBRARIES})
 
-#===============================================================================
-# Задача 07.04 
-#===============================================================================
 if(ENABLE_TESTS)
     find_package(GTest REQUIRED)
-    find_package(GMock REQUIRED)
     
-    add_executable(07_04_sort_tests 07_04.cpp)
-    target_link_libraries(07_04_sort_tests 
-        ${GTEST_LIBRARIES}
-        ${GMOCK_LIBRARIES}
-        pthread
-    )
-    target_compile_options(07_04_sort_tests PRIVATE -Wall -Wextra -Wpedantic)
-    target_include_directories(07_04_sort_tests PRIVATE ${GTEST_INCLUDE_DIRS})
+    add_executable(07_04 07_04.cpp)
+    target_link_libraries(07_04 GTest::gtest GTest::gtest_main pthread)
+    target_include_directories(07_04 PRIVATE ${GTEST_INCLUDE_DIRS})
 endif()
 
-#===============================================================================
-# Задача 07.05 
-#===============================================================================
 if(ENABLE_BENCHMARKS)
     find_package(benchmark REQUIRED)
     
-    add_executable(07_05_sort_benchmarks 07_05.cpp)
-    target_link_libraries(07_05_sort_benchmarks benchmark::benchmark benchmark::benchmark_main)
-    target_compile_options(07_05_sort_benchmarks PRIVATE -Wall -Wextra -Wpedantic)
+    add_executable(07_05 07_05.cpp)
+    target_link_libraries(07_05 benchmark::benchmark benchmark::benchmark_main)
 endif()
 
-#===============================================================================
-# Задача 08.01 
-#===============================================================================
-add_executable(08_01_fraud 08_01.cpp)
-target_compile_options(08_01_fraud PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(08_01 08_01.cpp)
 
-#===============================================================================
-# Задача 08.02 
-#===============================================================================
-add_executable(08_02_task 08_02.cpp)
-target_compile_options(08_02_task PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(08_02 08_02.cpp)
 
-#===============================================================================
-# Задача 08.03 
-#===============================================================================
-add_executable(08_03_ilog2 08_03.cpp)
-target_compile_options(08_03_ilog2 PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(08_03 08_03.cpp)
 
-#===============================================================================
-# Задача 08.04 
-#===============================================================================
-add_executable(08_04_dawkins 08_04.cpp)
-target_compile_options(08_04_dawkins PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(08_04 08_04.cpp)
 
-#===============================================================================
-# Задача 08.05 
-#===============================================================================
-add_executable(08_05_timer 08_05.cpp)
-target_compile_options(08_05_timer PRIVATE -Wall -Wextra -Wpedantic)
+add_executable(08_05 08_05.cpp)
+
+add_executable(09_01 09_01.cpp)
+
+add_executable(09_02 09_02.cpp)
+
+add_executable(09_03 09_03.cpp)
+
+add_executable(09_04 09_04.cpp)
+
+add_executable(09_05 09_05.cpp)
+
+add_executable(09_06 09_06.cpp)
+target_include_directories(09_06 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(09_06 PRIVATE ${Boost_LIBRARIES})
 
 message(STATUS "========================================")
 message(STATUS "Project configured with C++${CMAKE_CXX_STANDARD}")
