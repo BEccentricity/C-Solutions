@@ -34,6 +34,39 @@ add_library(second SHARED second.cpp)
 target_include_directories(second PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(second PRIVATE ${Boost_LIBRARIES})
 
+add_executable(09_07 09_07.cpp)
+target_include_directories(09_07 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(09_07 PRIVATE ${Boost_LIBRARIES})
+
+add_executable(09_08 09_08.cpp)
+
+add_executable(09_09 09_09.cpp)
+target_include_directories(09_09 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(09_09 PRIVATE ${Boost_LIBRARIES} benchmark::benchmark)
+
+add_executable(09_10 09_10.cpp)
+target_include_directories(09_10 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(09_10 PRIVATE ${Boost_LIBRARIES} benchmark::benchmark)
+
+add_executable(10_01 10_01.cpp)
+
+add_executable(10_02 10_02.cpp)
+
+add_executable(10_03 10_03.cpp)
+target_include_directories(10_03 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(10_03 PRIVATE ${Boost_LIBRARIES})
+
+add_executable(10_04 10_04.cpp)
+target_include_directories(10_04 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(10_04 PRIVATE ${Boost_LIBRARIES})
+
+add_executable(10_05 10_05.cpp)
+target_compile_options(10_05 PRIVATE -O3 -m32)
+
+add_executable(11_01 11_01.cpp)
+
+add_executable(11_03 11_03.cpp)
+
 if(ENABLE_TESTS)
     find_package(GTest REQUIRED)
     
