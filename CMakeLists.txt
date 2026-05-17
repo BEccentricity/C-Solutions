@@ -60,12 +60,35 @@ add_executable(10_04 10_04.cpp)
 target_include_directories(10_04 PRIVATE ${Boost_INCLUDE_DIRS})
 target_link_libraries(10_04 PRIVATE ${Boost_LIBRARIES})
 
-add_executable(10_05 10_05.cpp)
-target_compile_options(10_05 PRIVATE -O3 -m32)
-
 add_executable(11_01 11_01.cpp)
 
 add_executable(11_03 11_03.cpp)
+
+add_executable(11_04 11_04.cpp)
+
+add_executable(11_05 11_05.cpp)
+
+add_executable(11_06 11_06.cpp)
+target_include_directories(11_06 PRIVATE ${Boost_INCLUDE_DIRS})
+target_link_libraries(11_06 PRIVATE ${Boost_LIBRARIES})
+
+add_executable(12_01 12_01.cpp)
+
+add_executable(12_02 12_02.cpp)
+
+add_executable(12_03 12_03.cpp)
+
+add_executable(12_04 12_04.cpp)
+
+add_executable(12_05 12_05.cpp)
+
+add_executable(13_01 13_01.cpp)
+
+add_executable(13_02 13_02.cpp)
+
+add_executable(13_03 13_03.cpp)
+
+add_executable(13_04 13_04.cpp)
 
 if(ENABLE_TESTS)
     find_package(GTest REQUIRED)
